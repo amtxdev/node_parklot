@@ -2,7 +2,10 @@
   "name": "node_craft",
   "version": "1.0.0",
   "description": "Node Parking Lot CLI App",
-  "main": "index.js",
+  "main": "functional_spec/index.js",
+  "bin": {
+    "ParkingLot": "./functional_spec/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
