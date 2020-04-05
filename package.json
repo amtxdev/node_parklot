@@ -1,0 +1,24 @@
+{
+  "name": "node_craft",
+  "version": "1.0.0",
+  "description": "Node Parking Lot CLI App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldimustafri/node_craft.git"
+  },
+  "keywords": [
+    "Node",
+    "CLI",
+    "App"
+  ],
+  "author": "Aldi Mustafri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aldimustafri/node_craft/issues"
+  },
+  "homepage": "https://github.com/aldimustafri/node_craft#readme"
+}
