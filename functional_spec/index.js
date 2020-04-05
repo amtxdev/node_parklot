@@ -8,3 +8,14 @@
 
 const readline = require("readline");
 const fs = require("fs");
+const {
+  getData,
+  findPlateCar,
+  findPlateColor,
+  exitParking,
+  parking,
+  resetData,
+  getStatus,
+  init,
+  findSlotColor,
+} = require("./parking");
