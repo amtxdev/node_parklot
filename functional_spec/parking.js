@@ -1,55 +1,50 @@
 /**
  * @author Aldi Mustafri
  * @email aldimustafri@live.com
- * @create date 2020-04-05 17:25:17
- * @modify date 2020-04-05 17:25:17
  * @desc [description]
  */
 
 const {
-  findEmptySlot,
-  findNumberSlot,
-  findPlate,
-  findColor,
+  findVacantSlot,
+  findBySlotNumber,
+  findByPlate,
+  findByColor,
 } = require("./spec");
+const MAXIMUM_PARKING_LOT_SIZE = 600;
+const NOT_FOUND = "Not found";
+let _data = [];
+let _max;
 
-// Do Data Found
-const noData = "Data not found.";
-// Data Max input
-const maxData = 500;
-
-let data = [];
-let maximum;
-
-const init = (number) => {
-  if (!number || typeof n !== "number") {
-    const invalidError = "Invalid Input.";
-    console.log(`\x1b[33m${invalidError}\x1b[1m`);
-    return invalidError;
+const init = (n) => {
+  if (!n || typeof n !== "number") {
+    const errInvalid = "Input is invalid";
+    console.log(`\x1b[31m${errInvalid}\x1b[0m`);
+    return errInvalid;
   }
 
-  number = parseInt(number);
+  n = parseInt(n);
 
-  if (number > maxData) {
-    const maxError = "Input smaller number.";
-    console.log(`\x1b[33m${maxError}\x1b[1m`);
-    return maxError;
+  if (n >= MAXIMUM_PARKING_LOT_SIZE) {
+    const errMax = "Please input a smaller number.";
+    console.log(`\x1b[31m${errMax}\x1b[0m`);
+    return errMax;
   }
 
-  maximum = number;
+  _max = n;
   for (var i = 0; i < n; i++)
     _data.push({ id: i, no: i + 1, car: {}, isVacant: true });
-  return `Created a parking lot with ${number} slots`;
+  return `Created a parking lot with ${n} slots`;
 };
 
-const getData = () => data;
-const resetData = () => {
-  data.length = 0;
+const getData = () => _data;
+
+const reset = () => {
+  _data.length = 0;
 };
 
-const getStatus = (showEmpty) => {
+const status = (showVacant) => {
   console.log("Slot No.\tRegistration No\t\tColour");
-  data.map((slot) => {
+  _data.map((slot) => {
     if (slot.car && slot.car.plate) {
       console.log(`${slot.no}\t\t${slot.car.plate}\t\t${slot.car.color}`);
     } else if (showVacant) {
@@ -58,113 +53,109 @@ const getStatus = (showEmpty) => {
   });
 };
 
-const exitParking = (No) => {
-  if (!No) {
-    const messageError = "Slot number is missing";
-    console.log(`\x1b[33m${messageError}\x1b[1m`);
-    return messageError;
+const park = (plate, color) => {
+  if (!plate || !color) {
+    const paramErr = "Missing parameter(s).";
+    console.log(`\x1b[31m${paramErr}\x1b[0m`);
+    return paramErr;
   }
 
-  if (data.length === 0) {
-    const textError = "Parking lot is not available";
-    console.log(`\x1b[33m${textError}\x1b[1m`);
-    return textError;
+  if (_data.length === 0) {
+    const initErr = "Parking lot is not initialised.";
+    console.log(`\x1b[31m${initErr}\x1b[0m`);
+    return initErr;
   }
 
-  const getSlot = findNumberSlot(data, No);
-  if (getSlot && !slot.isVacant) {
-    data.splice(getSlot.id, 1, {
-      ...getSlot,
-      car: {},
-      isVacant: true,
-    });
-    return `Slot number: ${getSlot.No} is free`;
-  } else {
-    return "Parking exit error.";
-  }
-};
-
-const findPlateColor = (color) => {
-  if (!Color) {
-    const messageError = "Color is missing";
-    console.log(`\x1b[33m${messageError}\x1b[1m`);
-    return messageError;
+  if (findCarByPlate(plate) !== NOT_FOUND) {
+    const dupErr = "Fatal error. There is already a car by that plate.";
+    console.log(`\x1b[31m${dupErr}\x1b[0m`);
+    return dupErr;
   }
 
-  const genData = findColor(data, Color);
-  if (genData && genData.length > 0) {
-    return genData.map((index) => index.car.Plate).join(", ");
-  } else {
-    return `No car with color ${Color} is parking`;
-  }
-};
-
-const findSlotColor = (Color) => {
-  if (!Color) {
-    const messageError = "Color is missing";
-    console.log(`\x1b[33m${messageError}\x1b[1m`);
-    return messageError;
-  }
-
-  const genData = findColor(data, Color);
-  if (genData && data.length > 0) {
-    return genData.map((index) => index.No).join(", ");
-  } else {
-    return `No Slot car color is ${color} in Parking Lot`;
-  }
-};
-
-const parking = (Plate, Color) => {
-  if (!Plate || !Color) {
-    const messageError = "Color is missing";
-    console.log(`\x1b[33m${messageError}\x1b[1m`);
-    return messageError;
-  }
-
-  if (data.length === 0) {
-    const textError = "Parking lot is not initialised";
-    console.log(`\x1b[33m${textError}\x1b[1m`);
-    return textError;
-  }
-
-  if (findPlateCar(Plate) !== noData) {
-    const nodError = "Already car with that plate";
-    console.log(`\x1b[33m${nodError}\x1b[1m`);
-    return nodError;
-  }
-
-  const getSlot = findEmptySlot(data);
-  if (getSlot) {
-    data.splice(getSlot.id, 1, {
-      ...getSlot,
-      car: { Color, Plate },
+  const slot = findVacantSlot(_data);
+  if (slot) {
+    _data.splice(slot.id, 1, {
+      ...slot,
+      car: { color, plate },
       isVacant: false,
     });
-    return `Allocated slot number: ${getSlot.No}`;
+    return `Allocated slot number: ${slot.no}`;
   } else {
-    return "Parking is full";
+    return "Sorry, parking lot is full";
   }
 };
 
-const findPlateCar = (Plate) => {
-  if (!plate) {
-    const messageError = "Plate number is missing";
-    console.log(`\x1b[33m${messageError}\x1b[1m`);
-    return messageError;
+const leave = (no) => {
+  if (!no) {
+    const paramErr = "Missing slot number.";
+    console.log(`\x1b[31m${paramErr}\x1b[0m`);
+    return paramErr;
   }
 
-  const slot = findPlate(data, Plate);
-  return (slot && slot.No) || NOT_FOUND;
+  if (_data.length === 0) {
+    const initErr = "Parking lot is not initialised.";
+    console.log(`\x1b[31m${initErr}\x1b[0m`);
+    return initErr;
+  }
+
+  const slot = findBySlotNumber(_data, no);
+  if (slot && !slot.isVacant) {
+    _data.splice(slot.id, 1, { ...slot, car: {}, isVacant: true });
+    return `Slot number ${slot.no} is free`;
+  } else {
+    return "Error in processing leaving process";
+  }
+};
+
+const findCarByPlate = (plate) => {
+  if (!plate) {
+    const paramErr = "Missing plate number.";
+    console.log(`\x1b[31m${paramErr}\x1b[0m`);
+    return paramErr;
+  }
+
+  const slot = findByPlate(_data, plate);
+  return (slot && slot.no) || NOT_FOUND;
+};
+
+const findPlatesByColor = (color) => {
+  if (!color) {
+    const paramErr = "Missing color data.";
+    console.log(`\x1b[31m${paramErr}\x1b[0m`);
+    return paramErr;
+  }
+
+  const data = findByColor(_data, color);
+  if (data && data.length > 0) {
+    return data.map((d) => d.car.plate).join(", ");
+  } else {
+    return `No car with the colour ${color} is found in the parking lot.`;
+  }
+};
+
+const findSlotsByColor = (color) => {
+  if (!color) {
+    const paramErr = "Missing color data.";
+    console.log(`\x1b[31m${paramErr}\x1b[0m`);
+    return paramErr;
+  }
+
+  const data = findByColor(_data, color);
+  if (data && data.length > 0) {
+    return data.map((d) => d.no).join(", ");
+  } else {
+    return `No car with the colour ${color} is found in the parking lot.`;
+  }
 };
 
 module.exports = {
-  getData,
-  findPlateCar,
-  findPlateColor,
-  exitParking,
-  parking,
-  resetData,
-  getStatus,
   init,
-  findSlotColor,
+  findCarByPlate,
+  findPlatesByColor,
+  findSlotsByColor,
+  getData,
+  leave,
+  park,
+  reset,
+  status,
 };

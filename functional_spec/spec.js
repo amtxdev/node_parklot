@@ -1,22 +1,16 @@
 /**
  * @author Aldi Mustafri
  * @email aldimustafri@live.com
- * @create date 2020-04-05 16:56:49
- * @modify date 2020-04-05 16:56:49
- * @desc [description]
  */
 
-const findEmptySlot = (data) => data.find((a) => a.isEmpty);
-
-const findNumberSlot = (data, No) => data.find((a) => a.No === No);
-
-const findPlate = (data, Plate) => data.find((b) => b.car.Plate === Plate);
-
-const findColor = (data, Color) => data.find((b) => b.car.Color === Color);
+const findVacantSlot = (data) => data.find((s) => s.isVacant);
+const findBySlotNumber = (data, no) => data.find((s) => s.no === no);
+const findByPlate = (data, plate) => data.find((p) => p.car.plate === plate);
+const findByColor = (data, color) => data.filter((p) => p.car.color === color);
 
 module.exports = {
-  findEmptySlot,
-  findNumberSlot,
-  findPlate,
-  findColor,
+  findVacantSlot,
+  findBySlotNumber,
+  findByPlate,
+  findByColor,
 };
