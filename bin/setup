@@ -7,8 +7,8 @@ npm test
 # install the app globally
 npm install -g .
 
-# to run the app, type: node_craft
+# to run the app, type: parking_lot
 # you can run this app anywhere once the setup is finished
-# or you can also run this app by typing (in this directory): bin/node_craft
+# or you can also run this app by typing (in this directory): bin/parking_lot
 echo "Node Craft is installed globally"
 echo "To uninstall, run: bin/uninstall"
