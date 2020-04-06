@@ -1,10 +1,10 @@
 {
-  "name": "node_craft",
+  "name": "parking_lot",
   "version": "1.0.0",
   "description": "Node Parking Lot CLI App",
   "main": "functional_spec/index.js",
   "bin": {
-    "node_craft": "./functional_spec/index.js"
+    "parking_lot": "./functional_spec/index.js"
   },
   "scripts": {
     "test": "node_modules/mocha/bin/_mocha ./tests/*.test.js"

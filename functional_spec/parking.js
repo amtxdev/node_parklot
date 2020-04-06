@@ -1,7 +1,6 @@
 /**
  * @author Aldi Mustafri
  * @email aldimustafri@live.com
- * @desc [description]
  */
 
 const {
@@ -10,8 +9,9 @@ const {
   findByPlate,
   findByColor,
 } = require("./spec");
-const MAXIMUM_PARKING_LOT_SIZE = 600;
+const MAXIMUM_PARKING_LOT_SIZE = 1000;
 const NOT_FOUND = "Not found";
+
 let _data = [];
 let _max;
 
@@ -25,7 +25,7 @@ const init = (n) => {
   n = parseInt(n);
 
   if (n >= MAXIMUM_PARKING_LOT_SIZE) {
-    const errMax = "Please input a smaller number.";
+    const errMax = "Please enter a smaller number.";
     console.log(`\x1b[31m${errMax}\x1b[0m`);
     return errMax;
   }
@@ -33,6 +33,7 @@ const init = (n) => {
   _max = n;
   for (var i = 0; i < n; i++)
     _data.push({ id: i, no: i + 1, car: {}, isVacant: true });
+
   return `Created a parking lot with ${n} slots`;
 };
 
@@ -129,7 +130,7 @@ const findPlatesByColor = (color) => {
   if (data && data.length > 0) {
     return data.map((d) => d.car.plate).join(", ");
   } else {
-    return `No car with the colour ${color} is found in the parking lot.`;
+    return `No slot vacated by car with the colour ${color} is found in the parking lot.`;
   }
 };
 
@@ -144,7 +145,7 @@ const findSlotsByColor = (color) => {
   if (data && data.length > 0) {
     return data.map((d) => d.no).join(", ");
   } else {
-    return `No car with the colour ${color} is found in the parking lot.`;
+    return `No slot vacated by car with the colour ${color} is found in the parking lot.`;
   }
 };
 
