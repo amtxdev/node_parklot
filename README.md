@@ -1,7 +1,7 @@
 # Getting Started With Node Craft
 
 Node CLI App with an interactive command prompt based shell. The following
-commands below are to be run in the Terminal.App for Mac OSX or Linux.
+commands below are to be run in the Terminal App for Mac OSX or Linux.
 
 ## Technology
 
