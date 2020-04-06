@@ -5,12 +5,11 @@ commands below are to be run in the Terminal App for Mac OSX or Linux.
 
 ## Technology
 
-- [Node.JS](https://nodejs.org/en/) | a javaScript runtime.
-- [Mocha](https://mochajs.org/) | a feature-rich JavaScript test framework
-  running on Node.js.
-- [Chai](https://www.chaijs.com/) | a BDD / TDD assertion library for node and
-  the browser that can be delightfully paired with any javascript testing
-  framework.
+- [Node.JS](https://nodejs.org/en/) | JavaScript runtime.
+- [Mocha](https://mochajs.org/) | Feature-rich JavaScript test framework running
+  on Node.js.
+- [Chai](https://www.chaijs.com/) | BDD / TDD assertion library for node and the
+  browser that can be delightfully paired with any javascript testing framework.
 
 ## Setting up
 
@@ -32,20 +31,32 @@ commands below are to be run in the Terminal App for Mac OSX or Linux.
 
       bin/uninstall
 
-- Uninstall Globally
+- Uninstall globally
 
-      npm uninstall -g craft_node
+      npm uninstall -g node_craft
 
 ### Run Application
 
-- Globall
+- Global
 
   - After you have installed globally, open up terminal and type.
 
-        craft_node
-  
+        node_craft
+
+- Local
+
   - On project directory
-  
-        npm install 
-        node . 
+
+        npm install
+        node .
         exit (For exit project)
+
+- Via File Input
+
+  - On project directory
+
+        bin/parking_lot file_inputs.txt
+
+    or
+
+        node_craft file_inputs.txt
