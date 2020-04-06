@@ -27,7 +27,7 @@ let s;
 const prompt = () => rli.question("\x1b[34m>\x1b[0m ", promptInput);
 const promptInput = (i) => {
   if (i === "exit") {
-    console.log("Node Craft Exit");
+    console.log("Parking Lot Exit");
     rli.close();
     process.exit(0);
   } else {
@@ -81,7 +81,7 @@ const runCommand = (params) => {
   if (commandResult) console.log(commandResult);
 };
 
-const greeting = "\x1b[36m" + "-Node Craft- \n" + "-Type exit for quit-";
+const greeting = "\x1b[36m" + "-Parking Lot- \n" + "-Type exit for quit-";
 ("\x1b[0m\n");
 
 if (process.argv.length < 3) {

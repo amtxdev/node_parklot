@@ -33,7 +33,7 @@ commands below are to be run in the Terminal App for Mac OSX or Linux.
 
 - Uninstall globally
 
-      npm uninstall -g node_craft
+      npm uninstall -g parking_lot
 
 ### Run Application
 
@@ -41,7 +41,7 @@ commands below are to be run in the Terminal App for Mac OSX or Linux.
 
   - After you have installed globally, open up terminal and type.
 
-        node_craft
+        parking_lot
 
 - Local
 
@@ -59,4 +59,4 @@ commands below are to be run in the Terminal App for Mac OSX or Linux.
 
     OR
 
-        node_craft file_inputs.txt
+        parking_lot file_inputs.txt
