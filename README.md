@@ -18,23 +18,23 @@ commands below are to be run in the Terminal.App for Mac OSX or Linux.
 
 - Access project directory on your terminal.
 
-  bin/install
+      bin/install
 
 ### Testing.
 
 - Access project directory on your terminal.
 
-  npm test
+      npm test
 
 ### Uninstall.
 
 - Access project directory on your terminal.
 
-  bin/uninstall
+      bin/uninstall
 
 - Uninstall Globally
 
-  npm uninstall -g craft_node
+      npm uninstall -g craft_node
 
 ### Run Application
 
@@ -42,10 +42,10 @@ commands below are to be run in the Terminal.App for Mac OSX or Linux.
 
   - After you have installed globally, open up terminal and type.
 
-    craft_node
+        craft_node
 
 - On project directory
 
   - Access project directory on your terminal or Text Editor.
 
-    npm install type node . for run project type exit for exit project
+        npm install type node . for run project type exit for exit project
