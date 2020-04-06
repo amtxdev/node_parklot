@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * @author Aldi Mustafri
  * @email aldimustafri@live.com

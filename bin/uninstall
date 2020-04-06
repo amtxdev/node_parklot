@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# uninstall the application
+npm uninstall -g node_craft

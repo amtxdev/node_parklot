@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Add script to run program here.
+# Complete bin/setup so that after it is
+# run, bin/node_craft can be used to launch
+# it.
+
+# This variable contains absolute path of this `node_craft` script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+# message
+echo "Reminder: to run the application, you can type this command anywhere in your machine: node_craft"
+# run for the functional_spec suite
+node_craft $1

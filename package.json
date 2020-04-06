@@ -4,7 +4,7 @@
   "description": "Node Parking Lot CLI App",
   "main": "functional_spec/index.js",
   "bin": {
-    "ParkingLot": "./functional_spec/index.js"
+    "node_craft": "./functional_spec/index.js"
   },
   "scripts": {
     "test": "node_modules/mocha/bin/_mocha ./tests/*.test.js"

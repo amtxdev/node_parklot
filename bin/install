@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# init the app and testing framework
+npm install
+# test the app
+npm test
+# install the app globally
+npm install -g .
+
+# to run the app, type: node_craft
+# you can run this app anywhere once the setup is finished
+# or you can also run this app by typing (in this directory): bin/node_craft
+echo "Node Craft is installed globally"
+echo "To uninstall, run: bin/uninstall"
