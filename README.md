@@ -43,9 +43,9 @@ commands below are to be run in the Terminal.App for Mac OSX or Linux.
   - After you have installed globally, open up terminal and type.
 
         craft_node
-
-- On project directory
-
-  - Access project directory on your terminal or Text Editor.
-
-        npm install type node . for run project type exit for exit project
+  
+  - On project directory
+  
+        npm install 
+        node . 
+        exit (For exit project)
