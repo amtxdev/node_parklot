@@ -26,6 +26,6 @@
   "homepage": "https://github.com/aldimustafri/parking_lot#readme",
   "dependencies": {
     "chai": "^4.2.0",
-    "mocha": "^7.1.1"
+    "mocha": "^10.2.0"
   }
 }
